@@ -14,13 +14,21 @@ This repository contains Terraform code to provision a highly available web appl
 ---
 
 ## 📁 Project Structure
+
+> 📌 **Note**: Although this is a basic setup, the Terraform code is split into logically organized files (e.g., `autoscaling.tf`, `loadbalancer.tf`, `s3.tf`) instead of putting everything into `main.tf`. This structure helps improve readability and understanding, especially for beginners.
+> 
 terraform-aws-web-infra/
-├── main.tf                  # All Terraform configuration in one file
-├── variables.tf             # Input variables
-├── outputs.tf               # Output values
-├── provider.tf              # Provider and backend configuration
-├── terraform.tfvars         # Variable definitions (excluded from version control)
-└── README.me
+├── provider.tf            # Configuration for AWS provider
+├── variables.tf           # Input variables
+├── outputs.tf             # Output values
+├── terraform.tfvars       # Variable definitions (excluded from version control)
+├── network.tf                 # VPC, subnets, IGW, and NAT
+├── loadbalancer.tf        # Configuration for Application Load Balancer (ALB)
+├── autoscaling.tf         # Auto Scaling Group and Launch Template
+├── s3.tf                  # S3 static website hosting and logging
+├── locals.tf              # Local values used across various modules
+├── terraform.tf           # Terraform settings block
+└── README.md
 
 ---
 
